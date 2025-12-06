@@ -1,9 +1,10 @@
 #  Fake News Detection using RoBERTa  
 Transformer-based Deep Learning Model for Classifying Fake vs Real News  
 
-This project fine-tunes **RoBERTa-base**, a state-of-the-art Transformer architecture, for Fake News Detection using the Fake/True news dataset.  
-RoBERTa achieves exceptional performance due to its deep contextual understanding.
+This project fine-tunes RoBERTa-base, a state-of-the-art transformer model, to classify news articles as Fake or Real.
+The dataset used consists of two CSV files (Fake.csv and True.csv) merged into a unified train.csv.
 
+RoBERTa achieves near-perfect performance on this dataset due to its deep contextual understanding of language.
 
 ---
 
