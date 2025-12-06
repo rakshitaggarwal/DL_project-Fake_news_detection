@@ -222,38 +222,8 @@ if __name__ == "__main__":
     main()
 
 ```
-predict.py
-```
-import torch
-from transformers import AutoTokenizer
-from model import RoBERTaFakeNewsClassifier
-
-tokenizer = AutoTokenizer.from_pretrained("roberta-base")
-
-model = RoBERTaFakeNewsClassifier()
-model.load_state_dict(torch.load("outputs/best_model.pt", map_location="cpu"))
-model.eval()
-
-def predict(text):
-    enc = tokenizer(
-        text,
-        truncation=True,
-        padding="max_length",
-        max_length=256,
-        return_tensors="pt"
-    )
-
-    with torch.no_grad():
-        logits = model(enc["input_ids"], enc["attention_mask"])["logits"]
-        pred = torch.argmax(logits, dim=1).item()
-
-    return "FAKE NEWS" if pred == 0 else "REAL NEWS"
-
-if __name__ == "__main__":
-    x = input("Enter news text:\n> ")
-    print("\nPrediction:", predict(x))
 Why RoBERTa?
-
+```
 Modern transformer deep learning architecture
 
 Strong contextual understanding
